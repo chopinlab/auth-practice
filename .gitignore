@@ -1,0 +1,27 @@
+# .gitignore
+
+# Node.js 관련
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Vue.js 관련
+dist/
+
+# macOS 관련
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+
+# VSCode 관련
+.vscode/
+*.code-workspace
+
+# 디버그 로그
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
