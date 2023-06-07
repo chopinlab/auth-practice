@@ -21,7 +21,7 @@ export default {
   async created() {
     try {
       const code = new URL(window.location.href).searchParams.get('code');
-      
+
       // API 서버로 인증 코드를 보내 access token을 얻는 요청을 보냅니다.
       const response = await axios.post('http://localhost:3000/token', {
         code: code,

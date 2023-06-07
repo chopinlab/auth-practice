@@ -33,17 +33,17 @@ app.post('/token', (req, res) => {
       // 실제 서비스에서는 사용자 식별 정보와 함께 안전하게 저장되어야 합니다.  
       res.json({
         accessToken: data.access_token,
-        redirectUrl: 'http://www.naver.com',
+        redirectUrl: 'http://localhost:8080/dashboard',
         message: 'Tokens are set in cookies, session storage',
       });
-        
+
     } else {
       res.json({ error: 'Failed to get tokens.' });
     }
   })
-  .catch(function (error) {
-    console.log(error);
-  });
+    .catch(function (error) {
+      console.log(error);
+    });
 });
 
 app.listen(port, () => {
