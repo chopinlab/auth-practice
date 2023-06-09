@@ -1,0 +1,47 @@
+@startuml
+skinparam monochrome true
+skinparam backgroundColor #ADD8E6
+  
+participant Chrome as User
+participant "Front-Vue" as Front
+participant "API-Node" as AuthManager
+participant "Cognito" as Cognito
+
+
+note over User, Cognito: 1. Login case
+  
+User -> Front: Visit Console \nwith invalid access token
+
+activate Front
+Front -> AuthManager: request API
+activate AuthManager
+AuthManager --> Front: redirect Login URL
+deactivate AuthManager
+Front --> User: Redirect Login Page
+deactivate Front
+
+User -> Cognito: Enter Username and Password
+activate Cognito
+Cognito --> User: redirect to User with code
+deactivate Cognito
+
+User -> Front: Request Token with code
+activate Front
+Front -> AuthManager: Request Token with code
+activate AuthManager
+AuthManager -> Cognito: Request Token with code
+activate Cognito
+Cognito --> AuthManager: Return token
+deactivate Cognito
+
+AuthManager --> Front: Return token
+deactivate AuthManager
+Front --> User: Redirect Page with token
+deactivate Front
+User -> Front: Request Page(redirect page)
+activate Front
+Front --> User: return page
+deactivate Front
+deactivate Front
+
+@enduml

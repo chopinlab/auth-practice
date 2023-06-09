@@ -20,7 +20,7 @@ app.post('/token', (req, res) => {
     // auth: {
     //   user: 'your_client_id',
     //   pass: 'your_client_secret'
-    // }
+    // }손배
   };
 
   axios(options).then(function (response) {
